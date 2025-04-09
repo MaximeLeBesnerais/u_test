@@ -13,7 +13,7 @@
     },
     {
       "name": "Updater",
-      "description_long": "An app that uses a github repo as a store. It can be used to update the app itself or other apps.",
+      "description": "An app that uses a github repo as a store. It can be used to update the app itself or other apps.",
       "version": "0.1",
       "author": "Maxime Le Besnerais",
       "apk": "apks/Updater/app-release.apk"
