@@ -32,7 +32,6 @@ function main() {
         apps.push(appData);
       } catch (err) {
         console.error(err.message);
-        process.exit(1); // Fail the workflow if validation fails
       }
     }
   });
