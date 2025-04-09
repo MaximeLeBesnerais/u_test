@@ -1,0 +1,16 @@
+{
+  "name": "update-post-repo",
+  "description": "A repo to post updates to the app list",
+  "version": "1.0",
+  "author": "Maxime Le Besnerais",
+  "apps": [
+    {
+      "name": "Lovy",
+      "description": "Open Source LDR app",
+      "version": "0.1",
+      "author": "Maxime Le Besnerais",
+      "apk": "apks/Lovy/app-release.apk"
+    }
+  ],
+  "release-date": "2025-04-09"
+}
