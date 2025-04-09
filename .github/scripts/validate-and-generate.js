@@ -1,30 +1,38 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const APPS_DIR = 'apks';
-const OUTPUT_FILE = 'app.list.json';
+const APPS_DIR = "apks";
+const OUTPUT_FILE = "app.list.json";
 
 function validateAppFolder(folderPath) {
   const files = fs.readdirSync(folderPath);
-  const apk = files.find(f => f.endsWith('.apk'));
-  const manifest = files.find(f => f === 'manifest.json');
+  const apk = files.find((f) => f.endsWith(".apk"));
+  const manifest = files.find((f) => f === "manifest.json");
 
   if (!apk || !manifest) {
     throw new Error(`Folder ${folderPath} is missing required files.`);
   }
 
-  const manifestData = JSON.parse(fs.readFileSync(path.join(folderPath, manifest), 'utf-8'));
+  const manifestData = JSON.parse(
+    fs.readFileSync(path.join(folderPath, manifest), "utf-8")
+  );
+  const apkPath = path.join(folderPath, apk);
+
+  // Get file size in bytes
+  const stats = fs.statSync(apkPath);
+  const fileSizeInBytes = stats.size;
 
   return {
     ...manifestData,
-    apk: path.join(folderPath, apk),
+    apk: apkPath,
+    size: fileSizeInBytes, // Add file size
   };
 }
 
 function main() {
   const apps = [];
 
-  fs.readdirSync(APPS_DIR).forEach(folder => {
+  fs.readdirSync(APPS_DIR).forEach((folder) => {
     const folderPath = path.join(APPS_DIR, folder);
     if (fs.statSync(folderPath).isDirectory()) {
       try {
@@ -42,7 +50,7 @@ function main() {
     version: "1.0",
     author: "Maxime Le Besnerais",
     apps,
-    "release-date": new Date().toISOString().split('T')[0]
+    "release-date": new Date().toISOString().split("T")[0],
   };
 
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(result, null, 2));
