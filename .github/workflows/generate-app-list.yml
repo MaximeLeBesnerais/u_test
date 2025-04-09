@@ -3,7 +3,7 @@ name: Validate and Generate App List
 on:
   push:
     paths:
-      - 'apks/**'
+      - "apks/**"
 
 jobs:
   validate-and-generate:
@@ -15,7 +15,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: "18"
 
       - name: Install dependencies
         run: npm install glob
@@ -24,11 +24,17 @@ jobs:
         run: node .github/scripts/validate-and-generate.js
 
       - name: Commit and push if changed
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+
           if [[ `git status --porcelain` ]]; then
             git add app.list.json
             git commit -m "Update app.list.json"
-            git push
+
+            # Use token-based authentication
+            git remote set-url origin https://x-access-token:${ACCESS_TOKEN}@github.com/${{ github.repository }}
+            git push origin HEAD:${{ github.ref }}
           fi
