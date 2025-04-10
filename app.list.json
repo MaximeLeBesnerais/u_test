@@ -18,11 +18,11 @@
       "name": "Updater",
       "description": "An app that uses a github repo as a store. It can be used to update the app itself or other apps.",
       "version": "1.0.0",
-      "changelog": "Stable update 1.0.0",
+      "changelog": "Stable update 1.0.0\n1.0.1 - Support added for changelogs",
       "author": "Maxime Le Besnerais",
       "package": "com.maxime.updater",
       "apk": "apks/Updater/app-release.apk",
-      "size": 20843661
+      "size": 20856329
     }
   ],
   "release-date": "2025-04-10"
