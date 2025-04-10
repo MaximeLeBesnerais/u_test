@@ -1,8 +1,8 @@
 {
   "name": "Updater",
   "description": "An app that uses a github repo as a store. It can be used to update the app itself or other apps.",
-  "version": "1.0.0",
-  "changelog": "Stable update 1.0.0\n1.0.1 - Support added for changelogs",
+  "version": "1.0.2",
+  "changelog": "1.0.2 - Better support for errors, added a new error screen.",
   "author": "Maxime Le Besnerais",
   "package": "com.maxime.updater"
 }
