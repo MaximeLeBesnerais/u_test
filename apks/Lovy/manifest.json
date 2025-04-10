@@ -2,6 +2,7 @@
   "name": "Lovy",
   "description": "Open Source LDR app",
   "version": "0.1",
+  "changelog": "Initial release",
   "author": "Maxime Le Besnerais",
   "package": "com.maxime.lovy"
 }
