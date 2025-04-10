@@ -8,6 +8,7 @@
       "name": "Lovy",
       "description": "Open Source LDR app",
       "version": "0.1",
+      "changelog": "Initial release",
       "author": "Maxime Le Besnerais",
       "package": "com.maxime.lovy",
       "apk": "apks/Lovy/app-release.apk",
@@ -16,12 +17,13 @@
     {
       "name": "Updater",
       "description": "An app that uses a github repo as a store. It can be used to update the app itself or other apps.",
-      "version": "0.1",
+      "version": "1.0.0",
+      "changelog": "Stable update 1.0.0",
       "author": "Maxime Le Besnerais",
       "package": "com.maxime.updater",
       "apk": "apks/Updater/app-release.apk",
-      "size": 20694200
+      "size": 20843661
     }
   ],
-  "release-date": "2025-04-09"
+  "release-date": "2025-04-10"
 }
